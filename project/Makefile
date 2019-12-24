@@ -12,3 +12,5 @@ docker-c2:
 
 docker-down:
 	docker-compose down
+docket-stop:
+        docker-compose stop
