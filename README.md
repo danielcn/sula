@@ -1,14 +1,22 @@
 # Sula
 
-This has intent to be an open source project to help people with legs problem varicose vein problem
+This has intent to be an open source project to help people with varicose vein problem
 
 
-# Motivation
+## Motivation
 
-The main motivations for this project are:
-- Increase the knowledge about vein deseasw;
-- Provide a interface to create and get accessible data from governmental repositories.
+The main motivations of this project are:
+- Increase the knowledge of health professionals and population about vein desease;
+- Provide a interface to create an accessible way to get data from governmental
+repositories;
+- Use Artificial intelligence techniques for identify and recognize this problema 
 
+## Project tech stack
+
+The project is builded using:
+- Scala
+- sbt
+- Docker
 
 ## How to execute this
 
