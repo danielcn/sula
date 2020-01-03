@@ -27,4 +27,8 @@ The project is builded using:
 
 ## Tests
 
-### Execute unit tests
+### Execute a class of unit tests
+sbt test SpecificClass.sbt
+
+### Execute all tests
+sbt test
