@@ -13,4 +13,10 @@ docker-c2:
 docker-down:
 	docker-compose down
 docket-stop:
-        docker-compose stop
+  docker-compose stop
+
+docker-clean-container:
+	docker rm $(docker ps -aq)
+
+docker-clean-images:
+	docker rmi $(docker ps -aq)
