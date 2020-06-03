@@ -1,24 +1,30 @@
 pipeline {
-   agent any
+  agent any
 
-    parameters {
-      string description: 'Docker image tag', name: 'image', defaultValue: 'image here', trim: true
-    }
+  parameters {
+    string description: 'Docker image tag', name: 'image', defaultValue: 'image here', trim: true
+  }
 
-    stages {
-      stage('Prep build') {
-        steps {
-          echo 'code here'
-        }
+  stages {
+    stage('Prep build') {
+      steps {
+        checkou scm
       }
-      
-      stage('Testing script') {
-        steps {
-         sh '''#!/bin/bash
-          pwd
-          ls -la
-         '''
-        }
-      } 
     }
+
+    stage('Build') {
+      steps {
+          echo "Compiling..."
+          sh "${tool name: 'sbt', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/local/bin/sbt compile"
+      }
+    }
+
+    stage('Unit Test') {
+      steps {
+        echo "Testing..."
+        sh "${tool name: 'sbt', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt test"
+        sh "${tool name: 'sbt', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt scalastyle"
+      }  
+    }
+  }
 }
