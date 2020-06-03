@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Prep build') {
       steps {
-        echo 'code here'
+        checkou scm
       }
     }
     
