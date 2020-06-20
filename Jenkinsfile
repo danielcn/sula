@@ -4,6 +4,12 @@ pipeline {
   parameters {
     string description: 'Docker image tag', name: 'image', defaultValue: 'image here', trim: true
   }
+  
+  agent {
+    docker {
+      image 'hseeberger/scala-sbt'
+    }
+  }
 
   stages {
     stage('Prep build') {
