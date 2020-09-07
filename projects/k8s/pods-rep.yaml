@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: sula-scala
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     app: sula
   template:
@@ -17,4 +17,5 @@ spec:
           image: docker pull hseeberger/scala-sbt
           ports:
             - containerPort: 8080
+
             
